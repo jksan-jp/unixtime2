@@ -8,6 +8,19 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("Please enter a number")
+		os.Exit(1)
+	}
+
+	arg := os.Args[1]
+	// Try to parse the argument as an integer
+	_, err := strconv.ParseInt(arg, 10, 64)
+	if err != nil {
+		fmt.Println("Please enter a number")
+	@	os.Exit(1)
+	}
+
 	// Get the Unix timestamp from the command line argument
 	unixTimeStr := os.Args[1]
 	unixTime, err := strconv.ParseInt(unixTimeStr, 10, 64)
